@@ -1,5 +1,0 @@
-Channel_ID:007428116
-
-Channel secret:c399da607ffc01248eec14b0362b4d9c
-
-Channel access token:4eCR3vTZsQ4KA3k6hqFoYg0ZLXN291wOJ4grcOM/Hzpm1JNVXxz6hFxBfqa31iG4unDDeRPdgjZq8N7/Xi6ANSIQMxt8Gf1RlHxh2QI7mGCbrjaxm+YOxxRPyXjQKfvBlH9CXpoHaVGtULV8aKhyvQdB04t89/1O/w1cDnyilFU=
