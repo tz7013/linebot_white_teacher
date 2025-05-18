@@ -1,4 +1,4 @@
-linebot
+line-bot-sdk
 flask
 requests
 gunicorn
