@@ -43,7 +43,7 @@ def linebot():
             
 
             elif msg == "目前天氣":
-                reply = '請輸入"<地區>+<空格>+天氣"'
+                reply = '請依格式輸入：<地區> 天氣，例如：台北 天氣'
                 print(reply)
                 line_bot_api.reply_message(tk,TextSendMessage(reply))# 回傳訊息
 
