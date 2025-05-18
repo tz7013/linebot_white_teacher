@@ -41,7 +41,7 @@ def get_zodiac_sign(msg):
 
 
 def horoscope(zodiac_num):
-    horoscope_html = f"{zodiac_num}.html"
+    horoscope_html = f"horoscope_file/{zodiac_num}.html"
     
     if os.path.isfile(horoscope_html):
         print("檔案存在。")
