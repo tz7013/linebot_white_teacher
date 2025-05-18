@@ -8,15 +8,6 @@ import os
 
 app = Flask(__name__)
 
-# with open('api_key.txt', 'r', encoding='utf-8') as file:
-#     file = file.readlines()
-
-# api_key = {}
-# for line in file:
-#     line = line.strip().split(':')
-#     if line[0] != '':
-#         api_key[line[0]]=line[1]
-
 channel_access = os.getenv('channel_access')
 channel_secret = os.getenv('channel_secret')
 
