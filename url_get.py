@@ -2,6 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 import os
 
+weather_api_ke = os.getenv('weather_api_key')
+
 def get_zodiac_sign(msg):
     if msg.isdigit():
         month = int(msg[0:2])
@@ -43,24 +45,14 @@ def get_zodiac_sign(msg):
 def horoscope(zodiac_num):
     horoscope_html = f"horoscope_file/{zodiac_num}.html"
     
-    if os.path.isfile(horoscope_html):
-        print("檔案存在。")
+    url = f"https://astro.click108.com.tw/daily_{zodiac_num}.php?iAstro={zodiac_num}"
+    response = (requests.get(url))
 
-    else: 
-        url = f"https://astro.click108.com.tw/daily_{zodiac_num}.php?iAstro={zodiac_num}"
-        response = (requests.get(url))
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # print(soup.prettify())
 
-        with open (horoscope_html, 'w', encoding = 'utf-8') as file:
-            file.write(response.text)
-
-    with open (horoscope_html, 'r', encoding = 'utf-8') as file:
-        data = file.read()
-
-        soup = BeautifulSoup(data, 'html.parser')
-        # print(soup.prettify())
-
-        data = soup.find_all(class_="TODAY_CONTENT")
-        horoscope = data[0].text.strip()
+    data = soup.find_all(class_="TODAY_CONTENT")
+    horoscope = data[0].text.strip()
     
     return horoscope
 
@@ -71,8 +63,7 @@ def get_local_weather(local):
         local = "臺" + local[1:]
 
     # API 授權碼與 URL
-    API_KEY = "CWA-39A4E043-14A1-4D72-B097-B2D1F2C9A675"
-    API_URL = f"https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization={API_KEY}"
+    API_URL = f"https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization={weather_api_ke}"
 
     # 發送 GET 請求
     response = requests.get(API_URL)
